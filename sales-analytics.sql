@@ -149,6 +149,7 @@ TopLoyaltyCustomers AS (
     LIMIT 5
 )
 
+--1
 SELECT * FROM FeedbackComparison;
 -- OUTPUT:
 -- "productname"  "storetype"   "avgfeedbackscore" "totaltransactions"
@@ -159,11 +160,14 @@ SELECT * FROM FeedbackComparison;
 -- "Notebook"     "Online"      3.009              45251
 -- "Notebook"     "In-Store"    2.996              45043
 
+--2
 SELECT * FROM ProductReturnRate;
 -- OUTPUT:
 -- "productname"  "totalorders"  "returnedorders"  "returnrate"
 -- "Apple"        89970         45033             50.05
 
+
+--3
 SELECT * FROM PopularProducts;
 -- OUTPUT:
 -- "productname"  "totalquantitysold"  "totalrevenue"
@@ -173,6 +177,7 @@ SELECT * FROM PopularProducts;
 -- "Laptop"      89809                 6231220430.24
 -- "Sofa"        89740                 3777022903.56
 
+--4
 SELECT * FROM TopPaymentMethods;
 -- OUTPUT:
 -- "paymentmethod"  "totalorders"
@@ -180,6 +185,7 @@ SELECT * FROM TopPaymentMethods;
 -- "Cash"           112625
 -- "UPI"            112517
 
+--5
 SELECT * FROM TopCities;
 -- OUTPUT:
 -- "city"         "totalorders"
@@ -187,11 +193,13 @@ SELECT * FROM TopCities;
 -- "Delhi"        50215
 -- "Lucknow"      50190
 
+--6
 SELECT * FROM TopCustomer;
 -- OUTPUT:
 -- "customerid"  "totalorders"
 -- 39402        24
 
+--7
 SELECT * FROM OrdersByAge;
 -- OUTPUT:
 -- "agerange"  "totalorders"
@@ -201,6 +209,7 @@ SELECT * FROM OrdersByAge;
 -- "26-35"     79001
 -- "18-25"     62947
 
+--8
 SELECT * FROM OrdersByGender;
 -- OUTPUT:
 -- "customergender"  "totalorders"
@@ -208,6 +217,7 @@ SELECT * FROM OrdersByGender;
 -- "Male"          149970
 -- "Female"        149773
 
+--9
 SELECT * FROM TopRegions;
 -- OUTPUT:
 -- "region"  "totalorders"
@@ -215,6 +225,7 @@ SELECT * FROM TopRegions;
 -- "East"    118910
 -- "West"    96167
 
+--10
 SELECT * FROM SalesByRegion;
 -- OUTPUT:
 -- "region"  "totalrevenue"     "totaltransactions"
@@ -223,12 +234,14 @@ SELECT * FROM SalesByRegion;
 -- "North"   2171502697.87      96166
 -- "West"    2159911845.88      96167
 
+--11
 SELECT * FROM StorePerformance;
 -- OUTPUT:
 -- "storetype"  "revenue"
 -- "In-Store"   5078881502.74
 -- "Online"     5078048214.51
 
+--12
 SELECT * FROM ProductReturnCounts;
 -- OUTPUT:
 -- "productname"  "returncount"
@@ -238,6 +251,7 @@ SELECT * FROM ProductReturnCounts;
 -- "T-Shirt"      44783
 -- "Sofa"         44696
 
+--13
 SELECT * FROM TopLoyaltyCustomers;
 -- OUTPUT:
 -- "customerid"  "totalpoints"
