@@ -70,9 +70,36 @@ ORDER BY TotalQuantitySold DESC
 LIMIT 10;   
 
 --OUTPUT 3
-"productname"
-"Apple"
-"Notebook"
-"T-Shirt"
-"Laptop"
-"Sofa"
+"productname"	"totalquantitysold"	"totalrevenue"
+"Apple"	             2296713	      22300717.86
+"Notebook"	         498649	          24079586.12
+"T-Shirt"	         270545	          102306079.47
+"Laptop"	         89809	          6231220430.24
+"Sofa"	             89740	          3777022903.56
+
+--4 Top 3 preferred mode of payment.
+SELECT PaymentMethod, COUNT(*) AS TotalOrders
+FROM sales_data
+GROUP BY PaymentMethod
+ORDER BY TotalOrders DESC
+LIMIT 3;
+
+--OUTPUT 4
+"paymentmethod"	"totalorders"
+"Debit Card"	   113015
+"Cash"	           112625
+"UPI"	           112517
+
+--5 Top 3 Cities in terms of orders count.
+SELECT City, COUNT(*) AS TotalOrders
+FROM sales_data
+GROUP BY City
+ORDER BY TotalOrders DESC
+LIMIT 1;
+
+--OUTPUT 5
+"city"	    "totalorders"
+"Bangalore"	    50319
+"Delhi"	        50215
+"Lucknow"	    50190
+
