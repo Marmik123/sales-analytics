@@ -141,3 +141,88 @@ LIMIT 5;
 "36-45"	        79103
 "26-35"	        79001
 "18-25"     	62947
+
+--8 orders count by gender.
+SELECT CustomerGender, COUNT(*) AS TotalOrders
+FROM sales_data
+GROUP BY CustomerGender
+ORDER BY TotalOrders DESC
+LIMIT 1;
+
+--OUTPUT 8
+"customergender"	"totalorders"
+"Other"	            150257
+"Male"	            149970
+"Female"	        149773
+
+--9 Top 3 regions in terms of orders.
+SELECT Region, COUNT(*) AS TotalOrders
+FROM sales_data
+GROUP BY Region
+ORDER BY TotalOrders DESC
+LIMIT 3;
+
+--OUTPUT 9
+"region"	"totalorders"
+"South"	       146124
+"East"	       118910
+"West"	       96167
+
+--10 Sales Breakdown by Region
+SELECT 
+    Region, 
+    SUM(TransactionAmount) AS TotalRevenue, 
+    COUNT(*) AS TotalTransactions
+FROM sales_data
+GROUP BY Region
+HAVING REGION IS NOT NULL
+ORDER BY TotalRevenue DESC;
+
+--OUTPUT 10
+"region"	"totalrevenue"	"totaltransactions"
+"South"	3177273109.38	    146124
+"East"	2654969082.59	    118910
+"North"	2171502697.87	    96166
+"West"	2159911845.88	    96167
+
+--11 Store type performance
+SELECT StoreType, SUM(TransactionAmount) AS Revenue
+FROM sales_data
+GROUP BY StoreType
+HAVING storetype is not null
+ORDER BY Revenue DESC;
+
+--OUTPUT 11
+"storetype"	"revenue"
+"In-Store"	5078881502.74
+"Online"	5078048214.51
+	
+--12 Return Rate by Product
+SELECT ProductName, COUNT(*) AS ReturnCount
+FROM sales_data
+WHERE Returned = TRUE
+GROUP BY ProductName
+ORDER BY ReturnCount DESC;
+
+--OUTPUT 12
+"productname"	"returncount"
+"Notebook"	    45061
+"Apple"	        45033
+"Laptop"	    44904
+"T-Shirt"	    44783
+"Sofa"	        44696    
+
+--13 Top Loyalty Point Customers
+SELECT CustomerID, SUM(LoyaltyPoints) AS TotalPoints
+FROM sales_data
+GROUP BY CustomerID
+ORDER BY TotalPoints DESC
+LIMIT 5;
+
+--OUTPUT 13
+"customerid"	"totalpoints"
+13497	        132369
+15834	        131318
+39402	        130699
+24925	        128162
+44185	        123424
