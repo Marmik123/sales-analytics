@@ -56,3 +56,23 @@ LIMIT 1;
 --OUTPUT 2
 "productname"	"totalorders"	"returnedorders"	"returnrate"
    "Apple"	        89970	        45033	            50.05
+
+
+--3  Most Popular Products by Sales Volume
+SELECT 
+    ProductName, 
+    SUM(Quantity) AS TotalQuantitySold,
+    SUM(TransactionAmount) AS TotalRevenue
+FROM sales_data
+GROUP BY ProductName
+HAVING productname is not null
+ORDER BY TotalQuantitySold DESC
+LIMIT 10;   
+
+--OUTPUT 3
+"productname"
+"Apple"
+"Notebook"
+"T-Shirt"
+"Laptop"
+"Sofa"
